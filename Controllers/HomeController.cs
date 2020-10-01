@@ -5,12 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Projeto_.NET.Models;
 using Projeto_.NET_CORE.Models;
 
-namespace Projeto_.NET_CORE.Controllers
+namespace Projeto_.NET.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -22,8 +24,12 @@ namespace Projeto_.NET_CORE.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult Home()
+        {
+            Jogador j1 = new Jogador("Adalberto", 18, 83, 1.82, 41);
+            return View("Home", j1);
+        }
+        public ViewResult Privacy()
         {
             return View();
         }
