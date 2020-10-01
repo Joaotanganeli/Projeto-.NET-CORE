@@ -7,9 +7,27 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.botao {
+    width: 20%;
+    position: relative;
+    display: block;
+    font-size: 2em;
+    background-color: red;
+    margin: 25% 50%;
+    transform: translate(-50%, -50%);
+}
+
+.lista{
+    list-style-type: none;
+}
 /* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.link {
+  color: black !important;
+  display: none;
+}
+
+.link:hover{
+    text-decoration: none;
 }
 
 .btn-primary {
