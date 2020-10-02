@@ -1,0 +1,52 @@
+﻿@model Projeto_.NET.Models.Jogador
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+<div>
+    <h4>Informações do Jogador</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.Nome)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Idade)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.Idade)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Altura)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.Altura)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Num)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.Num)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nmr_Chuteira)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.Nmr_Chuteira)
+        </dt>
+
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID"/>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index">Back to list</a>
+    </form>
+</div>

@@ -26,8 +26,7 @@ namespace Projeto_.NET.Controllers
         }
         public IActionResult Home()
         {
-            Jogador j1 = new Jogador("Adalberto", 18, 83, 1.82, 41);
-            return View("Home", j1);
+            return View("Home");
         }
         public ViewResult Privacy()
         {

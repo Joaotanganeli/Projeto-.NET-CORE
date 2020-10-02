@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Projeto_.NET.Models.Jogador>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+@*TO DISPLAY JOGADOR INFO*@
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Altura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Num)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nmr_Chuteira)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var J1 in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => J1.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => J1.Idade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => J1.Altura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => J1.Num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => J1.Nmr_Chuteira)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@J1.ID">Edit</a>
+                <a asp-action="Details" asp-route-id="@J1.ID">Details</a>
+                <a asp-action="Delete" asp-route-id="@J1.ID">Delete</a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
