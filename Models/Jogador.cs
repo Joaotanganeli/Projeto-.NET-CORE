@@ -20,6 +20,8 @@ namespace Projeto_.NET.Models
         public float Altura { get; set; }
         [Required]
         public int Nmr_Chuteira { get; set; }
+        [Required]
+        public string Posicao { get; set; }
 
 
         /*public Jogador(string nome, int idade, int num, double altura, int nrm_Chuteira)
@@ -32,8 +34,6 @@ namespace Projeto_.NET.Models
         }
         */
 
-        public Jogador()
-        {
-        }
+        // public Jogador()
     }
 }

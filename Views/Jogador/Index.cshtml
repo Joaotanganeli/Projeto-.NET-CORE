@@ -4,59 +4,176 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1 class="laranja">Criação de Jogadores</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+    <div class="criar-jogador">
+        <p>
+            <a asp-action="Create" class="laranja">Criar novo Jogador</a>
+        </p>
+    </div>
 
 
 @*TO DISPLAY JOGADOR INFO*@
 
+<style>
+    header {
+        background: rgb(34,34,34);
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%);
+        color: #ffaf00;
+    }
 
-<table class="table table-striped">
+    nav {
+        background: rgb(34,34,34) !important;
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%) !important;
+    }
+
+    body {
+        background: rgb(34,34,34);
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%);
+    }
+
+    .criar-jogador {
+        width: 25%;
+        border: solid 1px;
+        vertical-align: middle;
+        text-align: center;
+        margin: 20px 0;
+        background: rgb(255,175,0);
+        background: linear-gradient(90deg, rgba(255,175,0,1) 0%, rgba(255,255,0,1) 100%, rgba(0,212,255,1) 100%);
+        border-radius: 20px;
+    }
+
+        .criar-jogador a:hover {
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+
+        .criar-jogador a {
+            color: #151515 !important;
+            font-weight: 800;
+            transition: ease-in-out all 400ms;
+        }
+
+        .criar-jogador p {
+            margin-top: 1rem;
+        }
+
+    .laranja {
+        color: #ffaf00 !important;
+    }
+
+    .preto {
+        color: #151515 !important;
+    }
+
+    .navbar-brand {
+        color: #ffaf00 !important;
+    }
+
+    .container {
+        color: #ffaf00 !important;
+    }
+
+    .gradient-orange {
+        background: rgb(255,175,0);
+        background: linear-gradient(90deg, rgba(255,175,0,1) 0%, rgba(255,255,0,1) 100%, rgba(0,212,255,1) 100%);
+        color: #151515;
+        font-weight: 700;
+    }
+
+    a {
+        text-decoration: none;
+        color: #ffaf00;
+    }
+
+        a:hover {
+            color: #151515;
+        }
+
+    .nav-link {
+        color: #ffaf00 !important;
+    }
+
+    .navbar-toggler {
+        background-color: #ffaf00 !important;
+    }
+
+    .a.text-dark:focus, a.text-dark:hover {
+        color: #ffaf00 !important;
+    }
+
+    .inv {
+        display: none;
+    }
+
+    .borda-preta {
+        border-left: solid #151515 2px;
+        border-right: solid #151515 2px;
+    }
+
+    th, td {
+        border-bottom: 2px solid #151515 !important;
+    }
+
+
+    .borda-top {
+        border-top: 2px solid #151515 !important;
+    }
+</style>
+
+<table class="table table-striped borda-preta">
     <thead>
-        <tr>
-            <th>
+        <tr class="gradient-orange borda-top">
+            <th class="text-center borda-preta-b">
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Idade)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Altura)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Num)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Nmr_Chuteira)
             </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Posicao)
+            </th>
+            <td class="text-center font-weight-bold">
+                <a>Opções</a>
+            </td>
         </tr>
     </thead>
     <tbody>
         @foreach(var J1 in Model)
         {
-        <tr>
-            <td>
+        <tr class="gradient-orange">
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => J1.Nome)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => J1.Idade)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => J1.Altura)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => J1.Num)
             </td>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => J1.Nmr_Chuteira)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@J1.ID">Edit</a>
-                <a asp-action="Details" asp-route-id="@J1.ID">Details</a>
-                <a asp-action="Delete" asp-route-id="@J1.ID">Delete</a>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => J1.Posicao)
+            </td>
+            <td class="text-center">
+                <a class="preto" asp-action="Edit" asp-route-id="@J1.ID">Editar</a>
+                <a class="preto" asp-action="Details" asp-route-id="@J1.ID">Detalhes</a>
+                <a class="preto" asp-action="Delete" asp-route-id="@J1.ID">Excluir</a>
             </td>
 
         </tr>

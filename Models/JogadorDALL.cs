@@ -11,7 +11,7 @@ namespace Projeto.NET.Models
 {
     public class JogadorDALL
     {
-        string connectionString = "Data Source=DESKTOP-5E0GEG5;Initial Catalog=JOGADORDB;Persist Security Info=False; User ID=sa;password=123;";
+        string connectionString = "Data Source=DESKTOP-5E0GEG5\\MSSQLSERVERDEV20;Initial Catalog=JOGADORDB;Persist Security Info=False; User ID=sa;password=7355608;";
 
         //Mostrar todos
 
@@ -28,11 +28,13 @@ namespace Projeto.NET.Models
                 while (dr.Read())
                 {
                     Jogador J1 = new Jogador();
-                    J1.ID = Convert.ToInt32(dr["ID"].ToString());
+                    J1.ID = Convert.ToInt32(dr["JOGADOR_ID"].ToString());
                     J1.Nome = dr["Nome"].ToString();
+                    J1.Idade = Convert.ToInt32(dr["Idade"].ToString());
                     J1.Altura = Convert.ToSingle(dr["Altura"].ToString());
                     J1.Num = Convert.ToInt32(dr["Numero"].ToString());
                     J1.Nmr_Chuteira = Convert.ToInt32(dr["Nmr_Chuteira"].ToString());
+                    J1.Posicao = dr["Posicao"].ToString();
 
                     JList.Add(J1);
                 }
@@ -48,11 +50,12 @@ namespace Projeto.NET.Models
                 SqlCommand cmd = new SqlCommand("SP_InsertJogador", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Nome", J1.Nome);
+                cmd.Parameters.AddWithValue("@NOME", J1.Nome);
                 cmd.Parameters.AddWithValue("@IDADE", J1.Idade);
                 cmd.Parameters.AddWithValue("@ALTURA", J1.Altura);
                 cmd.Parameters.AddWithValue("@NUMERO", J1.Num);
                 cmd.Parameters.AddWithValue("@NMR_CHUTEIRA", J1.Nmr_Chuteira);
+                cmd.Parameters.AddWithValue("@POSICAO", J1.Posicao);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -68,12 +71,13 @@ namespace Projeto.NET.Models
                 SqlCommand cmd = new SqlCommand("SP_UpdateJogador", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@JOGADOR_ID", J1.ID);
-                cmd.Parameters.AddWithValue("@Nome", J1.Nome);
+                cmd.Parameters.AddWithValue("@JId", J1.ID);
+                cmd.Parameters.AddWithValue("@NOME", J1.Nome);
                 cmd.Parameters.AddWithValue("@IDADE", J1.Idade);
                 cmd.Parameters.AddWithValue("@ALTURA", J1.Altura);
                 cmd.Parameters.AddWithValue("@NUMERO", J1.Num);
                 cmd.Parameters.AddWithValue("@NMR_CHUTEIRA", J1.Nmr_Chuteira);
+                cmd.Parameters.AddWithValue("@POSICAO", J1.Posicao);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -89,7 +93,7 @@ namespace Projeto.NET.Models
                 SqlCommand cmd = new SqlCommand("SP_DeleteJogador", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@JOGADOR_ID", J1Id);
+                cmd.Parameters.AddWithValue("@JId", J1Id);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -98,7 +102,7 @@ namespace Projeto.NET.Models
 
         //Achar jogador pelo ID
 
-        public Jogador GetJogadoresById(int? J1Id)
+        public Jogador GetJogadorById(int? J1Id)
         {
             Jogador J1 = new Jogador();
 
@@ -106,16 +110,18 @@ namespace Projeto.NET.Models
             {
                 SqlCommand cmd = new SqlCommand("SP_GetJogadorById", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@JOGADOR_ID", J1Id);
+                cmd.Parameters.AddWithValue("@JId", J1Id);
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    J1.ID = Convert.ToInt32(dr["ID"].ToString());
+                    J1.ID = Convert.ToInt32(dr["JOGADOR_ID"].ToString());
                     J1.Nome = dr["Nome"].ToString();
+                    J1.Idade = Convert.ToInt32(dr["Idade"].ToString());
                     J1.Altura = Convert.ToSingle(dr["Altura"].ToString());
                     J1.Num = Convert.ToInt32(dr["Numero"].ToString());
                     J1.Nmr_Chuteira = Convert.ToInt32(dr["Nmr_Chuteira"].ToString());
+                    J1.Posicao = dr["Posicao"].ToString();
                 }
                 con.Close();
             }

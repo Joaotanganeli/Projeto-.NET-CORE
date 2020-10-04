@@ -1,15 +1,112 @@
 ﻿@model Projeto_.NET.Models.Jogador
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Edit";
 }
 
-<h1> Create</h1>
-<h3>Entrar com Jogador</h3>
+<h3>Insira os dados do seu jogador</h3>
+
+
+<style>
+    header {
+        background: rgb(34,34,34);
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%);
+        color: #ffaf00;
+    }
+
+    nav {
+        background: rgb(34,34,34) !important;
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%) !important;
+    }
+
+    body {
+        background: rgb(34,34,34);
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%);
+    }
+
+    .form-group {
+        font-weight: 700;
+    }
+    .form-control{
+        font-weight: 500;
+    }
+
+    .laranja {
+        color: #ffaf00 !important;
+    }
+
+    .preto {
+        color: #151515 !important;
+    }
+
+    .navbar-brand {
+        color: #ffaf00 !important;
+    }
+
+    .navbar-toggler {
+        background-color: #ffaf00 !important;
+    }
+
+    .container {
+        color: #ffaf00 !important;
+    }
+
+    .gradient-black {
+        background: rgb(255,175,0);
+        background: linear-gradient(90deg, rgba(255,175,0,1) 0%, rgba(255,255,0,1) 100%, rgba(0,212,255,1) 100%);
+        color: #151515;
+        font-weight: 700;
+    }
+
+    a {
+        text-decoration: none;
+        color: #ffaf00;
+    }
+
+        a:hover {
+            color: #ffaf00;
+        }
+
+    .nav-link {
+        color: #ffaf00 !important;
+    }
+    .btn-success {
+        color: #000;
+        font-weight: 700;
+        background-color: #ffaf00;
+        border-color: #ffaf00;
+    }
+        .btn-success:hover {
+            color: #ffaf00;
+            font-weight: 700;
+            background-color: #222222;
+            border-color: #ffaf00;
+        }
+
+    .a.text-dark:focus, a.text-dark:hover {
+        color: #ffaf00 !important;
+    }
+
+    .inv {
+        display: none;
+    }
+
+    .borda-preta {
+        border-left: solid #151515 2px;
+        border-right: solid #151515 2px;
+    }
+
+    th, td {
+        border-bottom: 2px solid #151515 !important;
+    }
+
+    .borda-top {
+        border-top: 2px solid #151515 !important;
+    }
+</style>
 
 <div class="row">
     <div class=col-md-4>
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
@@ -43,15 +140,25 @@
             </div>
 
             <div class="form-group">
+                <label asp-for="Posicao" class="control-label" for="selectPosicao">Posição</label>
+                <select asp-for="Posicao" class="form-control" id="selectPosicao">
+                    <option>Atacante</option>
+                    <option>Meia</option>
+                    <option>Zagueiro</option>
+                    <option>Goleiro</option>
+                    <option>Lateral</option>
+                </select>
+                <span asp-validation-for="Posicao" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-success" />
+                <a class="btn btn-success" asp-action="Index">Back to list</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to list</a>
-</div>
 
 @section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -36,25 +36,26 @@ namespace Projeto.NET.Controllers
             return View(obj_jogador);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+         
         public IActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            Jogador J1 = jogadorDALL.GetJogadoresById(id);
+            Jogador J1 = jogadorDALL.GetJogadorById(id);
             if (J1 == null)
             {
                 return NotFound();
             }
+            
             return View(J1);
+
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int? id, [Bind] Jogador Obj_Jogador)
+        public IActionResult Edit(int? id, [Bind] Jogador obj_Jogador)
         {
             if (id == null)
             {
@@ -62,7 +63,7 @@ namespace Projeto.NET.Controllers
             }
             if (ModelState.IsValid)
             {
-                jogadorDALL.UpdateJogador(Obj_Jogador);
+                jogadorDALL.UpdateJogador(obj_Jogador);
                 return RedirectToAction("Index");
             }
             return View(jogadorDALL);
@@ -75,7 +76,7 @@ namespace Projeto.NET.Controllers
                 return NotFound();
             }
 
-            Jogador J1 = jogadorDALL.GetJogadoresById(id);
+            Jogador J1 = jogadorDALL.GetJogadorById(id);
             if (J1 == null)
             {
                 return NotFound();
@@ -90,7 +91,7 @@ namespace Projeto.NET.Controllers
                 return NotFound();
             }
 
-            Jogador J1 = jogadorDALL.GetJogadoresById(id);
+            Jogador J1 = jogadorDALL.GetJogadorById(id);
             if (J1 == null)
             {
                 return NotFound();

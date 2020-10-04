@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\Images\time1.png" />
+    <None Include="wwwroot\css\Images\time2.png" />
+    <None Include="wwwroot\css\Images\time3.png" />
+    <None Include="wwwroot\css\Images\time4.png" />
+    <None Include="wwwroot\css\Images\time5.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\Connector NET 8.0\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>

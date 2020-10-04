@@ -2,51 +2,175 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<style>
+    header {
+        background: rgb(34,34,34);
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%);
+        color: #ffaf00;
+    }
+
+    nav {
+        background: rgb(34,34,34) !important;
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%) !important;
+    }
+
+    body {
+        background: rgb(34,34,34);
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%);
+    }
+
+    .laranja {
+        color: #ffaf00 !important;
+    }
+
+    .preto {
+        color: #151515 !important;
+    }
+
+    .navbar-brand {
+        color: #ffaf00 !important;
+    }
+
+    .container {
+        color: #ffaf00 !important;
+    }
+
+    .gradient-black {
+        background: rgb(255,175,0);
+        background: linear-gradient(90deg, rgba(255,175,0,1) 0%, rgba(255,255,0,1) 100%, rgba(0,212,255,1) 100%);
+        color: #151515;
+        font-weight: 700;
+    }
+
+    a {
+        text-decoration: none;
+        color: #ffaf00;
+    }
+
+        a:hover {
+            color: #ffaf00;
+        }
+
+    .nav-link {
+        color: #ffaf00 !important;
+    }
+
+    .navbar-toggler {
+        background-color: #ffaf00 !important;
+    }
+
+    .btn-danger {
+        color: #000;
+        font-weight: 700;
+        background-color: #ffaf00;
+        border-color: #ffaf00;
+    }
+
+        .btn-danger:hover {
+            color: #ffaf00;
+            font-weight: 700;
+            background-color: #222222;
+            border-color: #ffaf00;
+        }
+
+    .a.text-dark:focus, a.text-dark:hover {
+        color: #ffaf00 !important;
+    }
+
+    .inv {
+        display: none;
+    }
+
+    .borda-preta {
+        border-left: solid #151515 2px;
+        border-right: solid #151515 2px;
+    }
+
+    th, td {
+        border-bottom: 2px solid #151515 !important;
+    }
+
+
+    .borda-top {
+        border-top: 2px solid #151515 !important;
+    }
+
+    .box-details {
+        border: 1px solid #ffaf00;
+        padding: 5px 15px;
+        margin: 15px 0px;
+        border-radius: 10px;
+    }
+</style>
+
+
 
 <h1>Delete</h1>
+
+
 <div>
     <h4>Informações do Jogador</h4>
     <hr />
 
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dt>
-            @Html.DisplayFor(model => model.Nome)
-        </dt>
+        <div class="box-details">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.Nome)
+            </dt>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Idade)
-        </dt>
-        <dt>
-            @Html.DisplayFor(model => model.Idade)
-        </dt>
+        <div class="box-details">
+            <dt>
+                @Html.DisplayNameFor(model => model.Idade)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.Idade)
+            </dt>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Altura)
-        </dt>
-        <dt>
-            @Html.DisplayFor(model => model.Altura)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Num)
-        </dt>
-        <dt>
-            @Html.DisplayFor(model => model.Num)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Nmr_Chuteira)
-        </dt>
-        <dt>
-            @Html.DisplayFor(model => model.Nmr_Chuteira)
-        </dt>
+        <div class="box-details">
+            <dt>
+                @Html.DisplayNameFor(model => model.Altura)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.Altura)
+            </dt>
+        </div>
+
+        <div class="box-details">
+            <dt>
+                @Html.DisplayNameFor(model => model.Num)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.Num)
+            </dt>
+        </div>
+
+        <div class="box-details">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nmr_Chuteira)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.Nmr_Chuteira)
+            </dt>
+        </div>
+        <div class="box-details">
+            <dt>
+                @Html.DisplayNameFor(model => model.Posicao)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.Posicao)
+            </dt>
+        </div>
 
     </dl>
 
     <form asp-action="Delete">
-        <input type="hidden" asp-for="ID"/>
+        <input type="hidden" asp-for="ID" />
         <input type="submit" value="Delete" class="btn btn-danger" />
-        <a asp-action="Index">Back to list</a>
+        <a asp-action="Index" class="btn btn-danger">Back to list</a>
     </form>
 </div>
