@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Projeto.NET.Models;
 using Projeto_.NET.Models;
 using Projeto_.NET_CORE.Models;
 
@@ -22,7 +23,9 @@ namespace Projeto_.NET.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Time BVB = Time.getInstance("Borussia Dortmund", 1909, 24, "O Borussia Dortmund venceu oito campeonatos alemães, 7 DFB-Pokals, seis DFL-Supercups, uma Liga dos Campeões, uma Taça dos Clubes Vencedores de Taças e uma Copa Intercontinental. A conquista da Taça dos Clubes Vencedores de Taças em 1966 fez deles o primeiro clube alemão a conquistar um título europeu.");
+
+            return View(BVB);
         }
         public IActionResult Home()
         {

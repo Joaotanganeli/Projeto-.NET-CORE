@@ -1,13 +1,75 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model Projeto_.NET.Models.Jogador
+@model Projeto.NET.Models.Time
+
+
 
 <div class="text-center">
     <h1>Bem vindo</h1>
-    <h2> Escolha seu time</h2>
 </div>
 
-<div class="">
+<br /><br />
 
+<style>
+
+    img{
+        width: 200px;
+    }
+
+    .criar-jogador {
+        width: 25%;
+        border: solid 1px;
+        vertical-align: middle;
+        text-align: center;
+        margin: 20px 0;
+        background: rgb(34,34,34) !important;
+        background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(21,21,21,1) 100%, rgba(0,212,255,1) 100%) !important;
+        color: #fff !important;
+        border-radius: 20px;
+    }
+
+        .criar-jogador a:hover {
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+
+        .criar-jogador a {
+            color: #fff !important;
+            font-weight: 600;
+            transition: ease-in-out all 400ms;
+        }
+
+        .criar-jogador p {
+            margin-top: 1rem;
+        }
+
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center align-self-center">
+            <div class="figure-img">
+                <img src="~/css/Images/bvb.png" />
+            </div>
+
+            <br /><br />
+
+            <p><strong>Nome do time: </strong>@Html.DisplayFor(model => model.Nome)  </p>
+            <p><strong>Ano que o time foi Criado: </strong> @Html.DisplayFor(model => model.Ano_de_Criacao)  </p>
+            <p><strong>Quantidade de titulos do time: </strong>@Html.DisplayFor(model => model.Titulos)  </p>
+            <p><strong>Titulos do time: </strong>@Html.DisplayFor(model => model.Qnt_Titulos)  </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="criar-jogador col-4 align-self-center">
+            <p>
+                <a asp-controller="Jogador" asp-action="Index">Escalar meu time</a>
+            </p>
+        </div>
+        <div class="col-4"></div>
+
+    </div>
 </div>
