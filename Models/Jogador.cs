@@ -22,18 +22,5 @@ namespace Projeto_.NET.Models
         public int Nmr_Chuteira { get; set; }
         [Required]
         public string Posicao { get; set; }
-
-
-        /*public Jogador(string nome, int idade, int num, double altura, int nrm_Chuteira)
-        {
-            Nome = nome;
-            Idade = idade;
-            Num = num;
-            Altura = altura;
-            Nmr_Chuteira = nrm_Chuteira;
-        }
-        */
-
-        // public Jogador()
     }
 }
